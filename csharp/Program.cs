@@ -3,8 +3,11 @@ class Program
 {
     static void Main()
     {
-        ProblemSolving fizzbuzz = new ProblemSolving();
-        fizzbuzz.FizzBuss(100);
+        ProblemSolving solving = new ProblemSolving();
+        solving.FizzBuss(100);
+
+        Console.WriteLine(solving.RomanToInt1("MCMXCIV"));
+        Console.WriteLine(solving.RomanToInt2("MCMXCIV"));
 
     }
 }
