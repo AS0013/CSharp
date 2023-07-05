@@ -1,8 +1,8 @@
 namespace Problems;
 
-public class isPalindrome{
+public class SinglyLinkedListProblems{
 
-    // Linked List class, for solving the isPalindrome problem below.
+    // Linked List class, for solving problem below.
     public class ListNode {
       public int val;
       public ListNode? next;
@@ -35,5 +35,22 @@ public class isPalindrome{
         }
         return true;
         
+    }
+
+    // Leetcode: Easy
+    //Given the head of a singly linked list, return the middle node of the linked list.
+    //If there are two middle nodes, return the second middle node.
+
+    // Using Floyd’s slow and fast pointers approach. 
+
+     public ListNode MiddleNode(ListNode head) {
+        ListNode? slow = head;
+        ListNode? fast = head;
+
+        while (fast != null && fast.next != null){
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        return slow;
     }
 }
