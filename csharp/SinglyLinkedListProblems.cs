@@ -43,7 +43,7 @@ public class SinglyLinkedListProblems{
 
     // Using Floyd’s slow and fast pointers approach. 
 
-     public ListNode MiddleNode(ListNode head) {
+    public ListNode MiddleNode(ListNode head) {
         ListNode? slow = head;
         ListNode? fast = head;
 
