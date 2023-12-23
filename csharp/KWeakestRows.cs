@@ -2,7 +2,7 @@ namespace Problems;
 
 public class KWeakestRows{
 
-// Not solved yet.
+// solved.
 
 // The K Weakest Rows in a Matrix (1337. Leetcode: Easy)
 // You are given an m x n binary matrix mat of 1's (representing soldiers)
@@ -13,27 +13,32 @@ public class KWeakestRows{
 // Both rows have the same number of soldiers and i < j.
 // Return the indices of the k weakest rows in the matrix ordered from weakest to strongest.
 
-    // public int[] kweakestrows(int[][] mat, int k){
+    public int[] kweakestrows(int[][] mat, int k){
+        List<Tuple<int, int>> temp = new List<Tuple<int, int>>();
+        int rows = mat.Length;
+        int cols = mat[0].Length;
 
-    //     int rows = mat.Length;
-    //     int col = mat[0].Length;
-    //     List<int> soldiers = new List<int>();
-
-    //     // finding the no. of soldiers in each row.
-    //     for (int r = 0; r < rows; r++)
-    //     {
-    //         int soldier = 0;
-    //         for (int c = 0; c < col; c++)
-    //         {
-    //             if (mat[r][c] == 1){
-    //                 soldier++;
-    //             }
-    //         }
-    //         soldiers.Add(soldier);
-    //     }
-
-    //     // sort the strenghts according to the conditions
-
-
-    // }
+        for (int i = 0; i < rows; i++){
+            int soldiers = 0;
+            for (int j = 0; j < cols; j++){
+                if (mat[i][j] == 1){
+                    soldiers++;
+                }
+            }
+            temp.Add(new Tuple<int, int>(soldiers, i));
+        }
+        temp.Sort((x, y) => {
+            int soldierComparison = x.Item1.CompareTo(y.Item1);
+            if (soldierComparison == 0){
+                return x.Item2.CompareTo(y.Item2);
+            } else {
+                return soldierComparison;
+            }
+        });
+        int[] result = new int[k];
+        for (int i = 0; i < k; i++){
+            result[i] = temp[i].Item2;
+        }
+        return result;
+    }
 }
